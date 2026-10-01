@@ -1,0 +1,28 @@
+
+Resource:
+book/books {
+    id: azonosito
+    title: cím
+    author: szerző
+}
+
+
+GET/book            - összes könyv lekérése
+GET/book/:id        - egy könyv lekérése
+POST/book           - egy könyv létrehozása
+    {
+        title: cím 
+        author: szerző
+    }
+DELETE/book/:id     - egy könyv törlése
+PATCH/book/:id      - egy könyv módosítása
+    {
+        title: cím 
+        author: szerző
+    }
+POST/search         - könyv kérése
+    {
+        search: "bármi"
+    }
+
+Minden egyéb kérés....

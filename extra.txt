@@ -1,0 +1,9 @@
+- projekt létrehozása
+- express, nodemon csomag install
+- server létrehozása, indítás teszt. (3000-es port, ctrl+c leállítás)
+    -- listen mindig a fájl végén
+    -- Cannot GET / browserben az már a helyes működés - amíg nincs get...
+- GET/book endpoint létrehozása - összes könyv lekérése
+- const getBooks
+    -- kell egy segéd tömb, nincs db, memóriában dolgozunk. globalId-t használunk 
+    és incrementálunk folyamatosan

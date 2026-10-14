@@ -37,20 +37,12 @@ function addRoutes(app) {
         nextId : 5
     }
 
-
-    app.get('/book', getBooksMW(objRep));
-    app.post('/book', createBookMW(objRep));
-    app.get('/book/:id', getBookMW(objRep), (req, res, next)=> res.json(books[res.locals.bookId]) );
-    app.delete('/book/:id',  getBookMW(objRep), deleteBookMW(objRep));
-    app.patch('/book/:id',  getBookMW(objRep), updateBookMW(objRep));
-    app.post('/search', searchMW(objRep));
-
-
-    
-
-
-
-
+    app.get('/book', getBooksMW(objRep), (req, res, next) => res.json(res.locals.books));
+    app.post('/book', createBookMW(objRep), (req, res, next) => res.json(res.locals.book));
+    app.get('/book/:id', getBookMW(objRep), (req, res, next)=> res.json(res.locals.book));
+    app.delete('/book/:id',  getBookMW(objRep), deleteBookMW(objRep), (req, res, next)=> res.json(res.locals.book));
+    app.patch('/book/:id',  getBookMW(objRep), updateBookMW(objRep), (req, res, next)=> res.json(res.locals.book));
+    app.post('/search', searchMW(objRep), (req, res, next)=> res.json(res.locals.books));
 
 }
 

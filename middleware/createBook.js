@@ -11,8 +11,8 @@ module.exports = (objRep) => {
             author: req.body.author
         };
         books.push(newBook);
-        //globalId++; 
         objRep.nextId++;
-        return res.status(201).json(newBook);
+        res.locals.book = newBook;
+        return next();
     };
 };

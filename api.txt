@@ -1,4 +1,3 @@
-
 Resource:
 book/books {
     id: azonosito
@@ -6,7 +5,7 @@ book/books {
     author: szerző
 }
 
-
+// JSON válasz
 GET/book            - összes könyv lekérése
 GET/book/:id        - egy könyv lekérése
 POST/book           - egy könyv létrehozása
@@ -25,4 +24,16 @@ POST/search         - könyv kérése
         search: "bármi"
     }
 
-Minden egyéb kérés....
+//Böngésző
+GET / - lista oldal : összeskönyv
+GET /newbook - üres ürlap (szerző, könyvcím)
+POST /newbook - új könyv mentése 
+GET /editbook/:id  - kitöltött ürlap (szerző, könyvcím)
+POST /editbook/:id - módosítás mentése
+GET /deletebook/:id -törlése  
+
+redirect : edit mentés után főoldalra
+redirect : törlés után főoldalra
+
+
+

@@ -1,5 +1,5 @@
 module.exports = (objRep) => {
-    const { books } = objRep;
+    const { bookModel, db } = objRep;
     return (req, res, next) => {
         if (typeof req.body.title !== 'undefined') {
             res.locals.book.title = req.body.title;
@@ -10,6 +10,13 @@ module.exports = (objRep) => {
         if ((typeof req.body.title == 'undefined') && (typeof req.body.author == 'undefined')) {
             return res.status(400).json({ error: 'Missing title or author' });
         }
-        return next();
+      
+        bookModel.update(res.locals.book);
+        db.saveDatabase(err=>{
+            if(err){
+                return next(err);
+            }
+            return next();
+        });
     };
 };

@@ -1,11 +1,9 @@
 module.exports = (objRep) => {
-    const { books } = objRep;
+    const { bookModel } = objRep;
     return (req, res, next) => {
 
-        const bookIdAsNumber = parseInt(req.params.id, 10);
-        const book = books.find(e => e.id === bookIdAsNumber); // új sor
-        
-        
+        const book = bookModel.findOne({id: req.params.id}); // új sor
+                
         if (!book) {
             return res.status(404).json({ error: `Book not found with id: ${req.params.id}` });
         }

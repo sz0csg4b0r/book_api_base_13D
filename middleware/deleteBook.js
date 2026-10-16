@@ -1,8 +1,12 @@
 module.exports = (objRep) => {
-    const { books } = objRep;
+    const { bookModel, db } = objRep;
     return (req, res, next) => {
-        const index = books.indexOf(res.locals.book)
-        books.splice(index, 1);
-        return next();
+        bookModel.remove(res.locals.book);
+        db.saveDatabase(err=>{
+            if(err){
+                return next(err);
+            }
+            return next();
+        })
     };
 };
